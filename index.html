@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="movieSearchApp">
+<head>
+    <title>Пошук фільмів</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="MovieSearchController">
+    <div>
+        <h1>Search:</h1>
+        <form ng-submit="searchMovies()">
+            <input class="movie-title" type="text" ng-model="searchTitle" placeholder="Enter the name">
+            <select class="movie-type" ng-model="searchType">
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="episode">Episode</option>
+            </select>
+            <button class="search-button" type="submit">Search</button>
+        </form>
+    </div>
+    
+    <div id="movies">
+        <div class="movie-item" ng-repeat="movie in movies">
+            <img class="image-item" ng-src="{{ movie.Poster }}" alt="{{ movie.Title }} Poster">
+            <div class="text-item">
+                <h4>{{ movie.Title }}</h4>
+                <p>Type: {{ movie.Type }}</p>
+                <p>Year: {{ movie.Year }}</p>
+                <button ng-click="showMovieDetails(movie.imdbID)">Details</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pagination">
+        <button class="page-button" ng-repeat="pageNumber in pages" ng-click="loadPage(pageNumber)">{{ pageNumber }}</button>
+    </div>
+
+    <div id="movie-details" >
+        <div class="movie-Details" ng-show="isMovieDetailsVisible">
+            <img class="Details-img" ng-src="{{ selectedMovie.Poster }}" alt="{{ selectedMovie.Title }} Poster">
+            <div class="Details-text">
+                <table>
+                    <tr>
+                        <td>Title:</td>
+                        <td>{{ selectedMovie.Title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Released:</td>
+                        <td>{{ selectedMovie.Released }}</td>
+                    </tr>
+                    <tr>
+                        <td>Genre:</td>
+                        <td>{{ selectedMovie.Genre }}</td>
+                    </tr>
+                    <tr>
+                        <td>Country:</td>
+                        <td>{{ selectedMovie.Country }}</td>
+                    </tr>
+                    <tr>
+                        <td>Director:</td>
+                        <td>{{ selectedMovie.Director }}</td>
+                    </tr>
+                    <tr>
+                        <td>Writer:</td>
+                        <td>{{ selectedMovie.Writer }}</td>
+                    </tr>
+                    <tr>
+                        <td>Actors:</td>
+                        <td>{{ selectedMovie.Actors }}</td>
+                    </tr>
+                    <tr>
+                        <td>Awards:</td>
+                        <td>{{ selectedMovie.Awards }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="Script.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #c9c9c9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div{
+    width: 90%;
+    max-width: 1600px;    
+    margin: 0 auto;
+    text-align: center;
+    /* background-color: #e6d1af;     */
+    padding: 5px;     
+}
+.movie-title, .movie-type, .search-button{
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+button{
+    cursor: pointer;
+}
+
+.details-button{
+    margin: 5px;
+    padding: 2px 30px;    
+}
+
+#movies{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.movie-item{
+    display: flex;
+    background-color: antiquewhite;
+    width: 320px;
+    height: 250px;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Параметри тіні */
+}
+
+.image-item{
+    margin: 10px;
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.movie-Details{
+    display: flex;
+    background-color: antiquewhite;
+    width: 1000px;
+    /* height: 500px; */
+    border: 1px solid black;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Параметри тіні */
+    /* display: none; */
+}
+.Details-img{
+    object-fit: cover;
+}
+table{
+    margin: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+td{
+    padding: 10px;
+    text-align: left;
+}
+td:nth-child(1){
+    color: #0b1d54;     
+    padding-right: 20px;
+    font-weight: bold;
+}
+td:nth-child(2){
+    color: #42042e; 
+}
